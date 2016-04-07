@@ -25,17 +25,15 @@
 
     </form>
 
+    <h1 id="sum-result"></h1>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
 
   <script type="text/javascript">
     var socket = io.connect('http://localhost:3000');
-
-    // socket.emit('sum', {});
-
-    socket.on('serverside', function(data) {
-      console.log('A server side event was emitted.');
-    });
-    
   </script>
+
+  <script src="./js/sum.io.js" charset="utf-8"></script>
+
   </body>
 </html>

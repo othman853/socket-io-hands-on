@@ -13,6 +13,9 @@ var httpServer = require('http').createServer(app);
 var io = require('socket.io')(httpServer);
 
 httpServer.listen(3000, () => console.log('Up'));
-io.on('connect', () => console.log('connected'));
-io.on('sum', () => console.log('Sum event.'))
-io.sockets.emit('serverside', {});
+
+io.on('connect', (socket) => {
+  socket.on('sum', (numbers) => {
+    socket.emit('sum-result', {result: parseInt(numbers.a) + parseInt(numbers.b) })
+  });
+});
